@@ -22,4 +22,10 @@ const { title = "Fuxion Landing", description = "" } = Astro.props;
       <slot />
     </main>
   </body>
+  <script>
+    // Desactiva el clic derecho en toda la página
+    document.addEventListener("contextmenu", function (e) {
+      e.preventDefault();
+    });
+  </script>
 </html>
