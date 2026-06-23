@@ -21,11 +21,54 @@ const { title = "Fuxion Landing", description = "" } = Astro.props;
     <main class="h-dvh snap-y snap-mandatory overflow-y-auto">
       <slot />
     </main>
+
+    <audio id="musica-fondo" loop>
+      <source src="/audio/Fuxion.mp3" type="audio/mpeg" />
+    </audio>
   </body>
+
   <script>
-    // Desactiva el clic derecho en toda la página
+    // 1. Desactiva el clic derecho en toda la página por seguridad
     document.addEventListener("contextmenu", function (e) {
       e.preventDefault();
+    });
+
+    // 2. Lógica premium para reproducir el audio de fondo
+    document.addEventListener("DOMContentLoaded", () => {
+      // AQUÍ ESTÁ LA MAGIA: Le decimos a TypeScript que esto es un Audio
+      const musica = document.getElementById(
+        "musica-fondo",
+      ) as HTMLAudioElement;
+
+      if (musica) {
+        // Ahora TypeScript sabe perfectamente que .volume y .play() existen
+        musica.volume = 0.02;
+
+        // Intentamos reproducir la música apenas carga la web
+        let intentarReproducir = musica.play();
+
+        if (intentarReproducir !== undefined) {
+          // Dejamos los paréntesis vacíos () para que TS no pida el tipo de error
+          intentarReproducir.catch(() => {
+            console.log(
+              "El navegador bloqueó el autoplay. Esperando interacción del usuario...",
+            );
+
+            // Si el navegador bloquea el audio, esperamos a que el usuario toque la pantalla
+            const iniciarAudio = () => {
+              musica.play();
+            };
+
+            // Ejecutará el audio con el primer clic o toque en el celular
+            document.body.addEventListener("click", iniciarAudio, {
+              once: true,
+            });
+            document.body.addEventListener("touchstart", iniciarAudio, {
+              once: true,
+            });
+          });
+        }
+      }
     });
   </script>
 </html>
