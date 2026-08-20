@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import { products } from "../data/config";
 ---
 
 <section class="panel section-shell" id="productos">
@@ -15,434 +16,64 @@
 
     <div class="carousel-mask">
       <div class="product-grid">
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/on.webp"
-              alt="Producto de bienestar premium"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>FUXION ON</h3>
-            <p>
-              Bebida nutritiva que ayuda a activar tu mente y mantenerla alerta.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=143066"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/nostress.webp"
-              alt="Suplemento digestivo premium"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>FUXION NOSTRESS</h3>
-            <p>
-              Manten el enfoque y el equilibrio mental bajo presion, sin causar
-              somnolencia.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=143070"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/ganomascappuccino.webp"
-              alt="Producto antioxidante premium"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>GANO + CAPPUCCINO</h3>
-            <p>
-              El secreto de la longevidad por su gran poder antioxidante a nivel
-              celular.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=142627"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/vera.webp"
-              alt="Producto de energía premium"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>VERA+</h3>
-            <p>Fortalece y mantén activo a tu sistema inmunológico.</p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=143069"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/goldenflx.webp"
-              alt="Producto premium para vitalidad"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>GOLDEN FLX</h3>
-            <p>
-              Revitaliza tus articulaciones y mantenlas vivas y con total
-              flexibilidad.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=143142"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/bioprotect.webp"
-              alt="Producto premium de bienestar diario"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>BIOPRO+ TECT</h3>
-            <p>
-              Mejora tu nutrición de manera activa y potencia el sistema de
-              defensas del organismo.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=141503"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/youthexlir.webp"
-              alt="Producto premium para ligereza"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>YOUTH ELIXIR</h3>
-            <p>
-              Nutre la glándula pituitaria, responsable de segregar la hormona
-              de la juventud.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=145082"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/beautyin.webp"
-              alt="Producto premium de soporte nutricional"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>BEAUTY-IN</h3>
-            <p>
-              Colageno bioactivo que nutre tu piel desde adentro, para que luzca
-              radiante y juvenil.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=143065"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/berrybalance.webp"
-              alt="Producto premium para activación diaria"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>BERRY BALANCE</h3>
-            <p>
-              Protege tu sistema urinario de manera natural y de la forma mas
-              completa.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=146065"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/nutraday.webp"
-              alt="Producto premium para equilibrio general"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>NUTRADAY+</h3>
-            <p>
-              Nutrición para toda la familia para tener más vitalidad y defensas
-              fortalecidas.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=145716"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/rexet.webp"
-              alt="Producto premium para equilibrio general"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>REXET</h3>
-            <p>Protege tu higado y promueve la funcion desintoxicante.</p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=145993"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/prunex1.webp"
-              alt="Producto premium para equilibrio general"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>PRUNEX1</h3>
-            <p>
-              Reduce la hinchazón, mejora tu tránsito intestinal y recupera tu
-              comodidad.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=142626"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/thermot3.webp"
-              alt="Producto premium para equilibrio general"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>THERMO T3</h3>
-            <p>
-              Mejora tu metabolismo, ayuda a quemar grasa y contribuye a la
-              pérdida de peso.
-            </p>
-            <div class="product-actions">
-              <a
-                class="mini-btn buy"
-                href="https://ifuxion.com/info/enrollment/productsdet?itemcode=142623"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Comprar
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/vita.webp"
-              alt="Producto premium para equilibrio general"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>VITA XTRA T+</h3>
-            <p>
-              Aumenta la energía, mejora la resistencia física y aporta un
-              potente antioxidante.
-              <div class="product-actions">
-                <a
-                  class="mini-btn buy"
-                  href="https://ifuxion.com/info/enrollment/productsdet?itemcode=142625"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Comprar
-                </a>
+        {
+          products.map((product) => (
+            <article class="product-card">
+              <div class="product-image">
+                <Image
+                  src={product.image}
+                  alt={`Envase de ${product.name}`}
+                  width={900}
+                  height={900}
+                  loading="lazy"
+                />
               </div>
-            </p>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <div class="product-image">
-            <img
-              src="/images/floraliv.webp"
-              alt="Producto premium para equilibrio general"
-              width="900"
-              height="900"
-              loading="lazy"
-            />
-          </div>
-          <div class="product-body">
-            <h3>FLORA LIV</h3>
-            <p>
-              Ayuda a equilibrar la flora intestinal, fortalecer las defensas y
-              mejorar la salud digestiva.
-              <div class="product-actions">
-                <a
-                  class="mini-btn buy"
-                  href="https://ifuxion.com/info/enrollment/productsdet?itemcode=142953"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Comprar
-                </a>
+              <div class="product-body">
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <div class="product-actions">
+                  <a
+                    class="mini-btn buy"
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Comprar
+                  </a>
+                </div>
               </div>
-            </p>
-          </div>
-        </article>
+            </article>
+          ))
+        }
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { animate, inView, stagger } from "motion";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    let gridAnimated = false;
+    inView(".product-grid", ({ target }) => {
+      if (gridAnimated) return;
+      gridAnimated = true;
+      animate(
+        target.querySelectorAll(".product-card"),
+        { opacity: [0, 1], y: [40, 0], scale: [0.95, 1] },
+        { delay: stagger(0.1), duration: 0.6, ease: "easeOut" }
+      );
+    }, { margin: "-50px" });
+
+    let titleAnimated = false;
+    inView(".section-top", ({ target }) => {
+      if (titleAnimated) return;
+      titleAnimated = true;
+      animate(
+        target,
+        { opacity: [0, 1], y: [20, 0] },
+        { duration: 0.8, ease: "easeOut" }
+      );
+    });
+  });
+</script>

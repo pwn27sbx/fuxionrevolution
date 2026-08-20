@@ -1,5 +1,7 @@
 ---
-
+import { siteConfig } from "../data/config";
+import StoryCard from "./StoryCard.astro";
+import { Image } from "astro:assets";
 ---
 
 <section class="panel section-shell" id="confianza">
@@ -18,10 +20,11 @@
         <div class="gallery-grid">
           <article class="gallery-item video-item">
             <video
-              autoplay
               muted
               loop
               playsinline
+              preload="none"
+              class="lazy-video"
               style="width: 100%; height: 100%; object-fit: cover; border-radius: 18px;"
             >
               <source src="/videos/short2.webm" type="video/webm" />
@@ -53,26 +56,21 @@
 
       <div class="story-column">
         <div class="story-row">
-          <article class="story-card">
-            <p class="eyebrow">SUMATE AHORA</p>
-            <h3>Crece</h3>
-            <p>
-              La vida se define por aquellos momentos donde tomamos el valor de
-              ir por nuestros sueños.
-            </p>
-          </article>
-          <article class="story-card">
-            <p class="eyebrow">CUMPLE TUS SUEÑOS</p>
-            <h3>Disfruta</h3>
-            <p>
-              No vivas de algo que no te da felicidad se feliz viviendo algo que
-              te apasiona.
-            </p>
-          </article>
+          <StoryCard 
+            eyebrow="APRENDE Y CRECE"
+            title="Sistema Educativo Virtual"
+            description="Domina las habilidades clave para llevar tu negocio al siguiente nivel."
+            link={siteConfig.links.virtualSystem}
+          />
+          <StoryCard 
+            eyebrow="CUMPLE TUS SUEÑOS"
+            title="Comunidad y Liderazgo"
+            description="Únete a un equipo apasionado que te impulsará hacia tu libertad financiera."
+          />
         </div>
 
         <article class="feature-visual">
-          <video autoplay muted loop playsinline>
+          <video muted loop playsinline preload="none" class="lazy-video">
             <source src="/videos/video2.webm" type="video/webm" />
             <source src="/videos/video2.mp4" type="video/mp4" />
           </video>
@@ -102,7 +100,7 @@
     <footer class="social-footer">
       <div class="social-links">
         <a
-          href="#"
+          href={siteConfig.social.instagram}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
@@ -125,10 +123,10 @@
           >
         </a>
         <a
-          href="#"
+          href={siteConfig.social.youtube}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="TikTok"
+          aria-label="YouTube"
         >
           <svg
             viewBox="0 0 24 24"
@@ -139,11 +137,11 @@
             fill="none"
             stroke-linecap="round"
             stroke-linejoin="round"
-            ><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg
+            ><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg
           >
         </a>
         <a
-          href="#"
+          href={siteConfig.social.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
@@ -163,7 +161,7 @@
           >
         </a>
         <a
-          href="#"
+          href={siteConfig.social.facebook}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
@@ -189,3 +187,71 @@
     </footer>
   </div>
 </section>
+
+<script>
+  import { animate, inView, stagger } from "motion";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Motion animations
+    let topAnimated = false;
+    inView("#confianza .section-top", ({ target }) => {
+      if (topAnimated) return;
+      topAnimated = true;
+      animate(target, { opacity: [0, 1], y: [20, 0] }, { duration: 0.8 });
+    }, { margin: "-50px" });
+
+    let galleryAnimated = false;
+    inView(".gallery-grid", ({ target }) => {
+      if (galleryAnimated) return;
+      galleryAnimated = true;
+      animate(
+        target.querySelectorAll(".gallery-item"),
+        { opacity: [0, 1], scale: [0.95, 1], rotate: [-2, 0] },
+        { delay: stagger(0.15), duration: 0.8, ease: "easeOut" }
+      );
+    }, { margin: "-50px" });
+
+    let storyAnimated = false;
+    inView(".story-row", ({ target }) => {
+      if (storyAnimated) return;
+      storyAnimated = true;
+      animate(
+        target.querySelectorAll(".story-card"),
+        { opacity: [0, 1], x: [30, 0] },
+        { delay: stagger(0.15), duration: 0.7, ease: "easeOut" }
+      );
+    }, { margin: "-50px" });
+
+    let statsAnimated = false;
+    inView(".micro-stats", ({ target }) => {
+      if (statsAnimated) return;
+      statsAnimated = true;
+      animate(
+        target.querySelectorAll(".micro-stat"),
+        { opacity: [0, 1], y: [20, 0] },
+        { delay: stagger(0.1), duration: 0.6 }
+      );
+    }, { margin: "-50px" });
+
+    // Lazy videos
+    const lazyVideos = document.querySelectorAll(".lazy-video");
+    
+    if ("IntersectionObserver" in window) {
+      const videoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((video) => {
+          if (video.isIntersecting) {
+            const vidElement = video.target as HTMLVideoElement;
+            vidElement.play();
+          } else {
+            const vidElement = video.target as HTMLVideoElement;
+            vidElement.pause();
+          }
+        });
+      }, { rootMargin: "0px 0px 200px 0px" });
+
+      lazyVideos.forEach((video) => {
+        videoObserver.observe(video);
+      });
+    }
+  });
+</script>

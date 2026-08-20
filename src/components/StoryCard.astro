@@ -1,0 +1,74 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  link?: string;
+  linkText?: string;
+}
+
+const { eyebrow, title, description, link, linkText } = Astro.props;
+---
+
+{
+  link ? (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="story-card group story-card-link"
+    >
+      <div class="story-card-inner">
+        <p class="eyebrow">{eyebrow}</p>
+        <h3 class="story-card-title">{title}</h3>
+        <p>{description}</p>
+        <div class="story-card-action">
+          <span>{linkText || "Ingresar aquí"}</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </div>
+    </a>
+  ) : (
+    <article class="story-card" style="position: relative;">
+      <div class="story-card-inner">
+        <p class="eyebrow">{eyebrow}</p>
+        <h3 class="story-card-title">{title}</h3>
+        <p>{description}</p>
+        <div class="story-card-spacer"></div>
+      </div>
+    </article>
+  )
+}
+
+<style>
+  .story-card-link {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+  }
+  .story-card-inner {
+    position: relative;
+    z-index: 1;
+  }
+  .story-card-title {
+    line-height: 1.2;
+  }
+  .story-card-action {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold-2);
+    transition: opacity 0.3s ease;
+  }
+  .story-card-action:hover {
+    opacity: 0.8;
+  }
+  .story-card-spacer {
+    margin-top: 12px;
+    height: 16px;
+  }
+</style>

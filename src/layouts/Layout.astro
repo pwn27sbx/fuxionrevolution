@@ -10,6 +10,22 @@ const { title = "Fuxion Landing", description = "" } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/card-poster.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/card-poster.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +34,7 @@ const { title = "Fuxion Landing", description = "" } = Astro.props;
     />
   </head>
   <body class="min-h-dvh bg-slate-950 text-slate-50">
-    <main class="h-dvh snap-y snap-mandatory overflow-y-auto">
+    <main class="h-dvh snap-y snap-proximity overflow-y-auto">
       <slot />
     </main>
 

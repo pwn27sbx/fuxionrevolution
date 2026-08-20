@@ -1,5 +1,5 @@
 ---
-
+import { siteConfig } from "../data/config";
 ---
 
 <section class="panel" id="hero">
@@ -38,7 +38,7 @@
           <a class="ghost" href="#confianza">Ver testimonios</a>
           <a
             class="primary"
-            href="https://ifuxion.com/info/enrollment/enrollmentconfiguration?CustomerTypeID=1"
+            href={siteConfig.links.enrollment}
             >Quiero empezar</a
           >
         </div>
@@ -66,3 +66,32 @@
     </div>
   </div>
 </section>
+
+<script>
+  import { animate, stagger } from "motion";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Nav animation
+    animate(".nav", { y: [-20, 0], opacity: [0, 1] }, { duration: 0.8, delay: 0.2 });
+    
+    // Main text and CTA animation
+    animate(
+      ".impact-copy h1, .impact-copy .cta-row",
+      { y: [30, 0], opacity: [0, 1] },
+      { delay: stagger(0.2, { startDelay: 0.4 }), duration: 0.8, ease: "easeOut" }
+    );
+    
+    // Floating cards animation
+    animate(
+      ".floating-card",
+      { y: [40, 0], opacity: [0, 1], rotate: [-5, 0] },
+      { delay: 0.6, duration: 1, ease: "easeOut" }
+    );
+    
+    animate(
+      ".floating-pill",
+      { scale: [0.8, 1], opacity: [0, 1] },
+      { delay: stagger(0.2, { startDelay: 1 }), duration: 0.6, ease: "backOut" }
+    );
+  });
+</script>
