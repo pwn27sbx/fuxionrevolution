@@ -7,7 +7,7 @@ export const siteConfig = {
   },
   links: {
     enrollment: "https://ifuxion.com/info/enrollment/enrollmentconfiguration?CustomerTypeID=1",
-    virtualSystem: "https://www.facebook.com/awarefanpage",
+    virtualSystem: "https://facebook.com/fuxionemprendedoresoficial",
   }
 };
 

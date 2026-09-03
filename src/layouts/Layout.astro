@@ -29,16 +29,21 @@ const { title = "Fuxion Landing", description = "" } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+      as="style"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="min-h-dvh bg-slate-950 text-slate-50">
-    <main class="h-dvh snap-y snap-proximity overflow-y-auto">
+    <main class="lg:h-dvh lg:snap-y lg:snap-proximity lg:overflow-y-auto">
       <slot />
     </main>
 
-    <audio id="musica-fondo" loop>
+    <audio id="musica-fondo" loop preload="none">
       <source src="/audio/Fuxion.mp3" type="audio/mpeg" />
     </audio>
   </body>
